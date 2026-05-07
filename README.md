@@ -1,8 +1,9 @@
 # 💰 CashFlow — Controle de Fluxo de Caixa - VERX CONSULTORIA ( Carrefour )
 
-Solução para o desafio de Arquiteto de Software: sistema de controle de lançamentos diários (débitos/créditos) com consolidado diário, construído sobre **.NET 8**, **CQRS**, **Clean Architecture** e **mensageria assíncrona com RabbitMQ**.
+Solução para o desafio de Arquiteto de Software: sistema de controle de lançamentos diários (débitos/créditos) com consolidado diário, construído sobre **.NET 8**, **CQRS**, **Clean Architecture** e **mensageria assíncrona com RabbitMQ** quando disponível.
 
----
+Prototipo Relatorio: MODELO_PROPOSTO_RELATORIO.jpeg
+Prototipo Tela Inicial: MODELO_PROPOSTO_TELAINICIAL.jpeg
 
 ## 📐 Arquitetura
 
@@ -32,12 +33,7 @@ Solução para o desafio de Arquiteto de Software: sistema de controle de lança
    │ (SQLite)        │           │ (SQLite)             │
    └─────────────────┘           └─────────────────────┘
 ```
-
-
-
----
-
-## 🏗️ Estrutura de Projetos
+## 🏗️ Estrutura do Projeto ( )
 
 ```
 cashflow/
