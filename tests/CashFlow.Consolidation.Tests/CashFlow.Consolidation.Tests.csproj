@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="6.12.0" />
+    <PackageReference Include="NSubstitute" Version="5.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
+    <PackageReference Include="xunit" Version="2.9.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.0" />
+    <ProjectReference Include="..\..\src\CashFlow.Consolidation.Application\CashFlow.Consolidation.Application.csproj" />
+    <ProjectReference Include="..\..\src\CashFlow.Consolidation.Domain\CashFlow.Consolidation.Domain.csproj" />
+    <ProjectReference Include="..\..\src\CashFlow.Shared\CashFlow.Shared.csproj" />
+  </ItemGroup>
+</Project>

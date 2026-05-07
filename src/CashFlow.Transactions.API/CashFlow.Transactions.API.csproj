@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8" />
+    <PackageReference Include="AspNetCore.HealthChecks.EntityFramework" Version="8.0.1" />
+    <ProjectReference Include="..\CashFlow.Transactions.Application\CashFlow.Transactions.Application.csproj" />
+    <ProjectReference Include="..\CashFlow.Transactions.Infrastructure\CashFlow.Transactions.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

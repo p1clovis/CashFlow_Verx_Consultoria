@@ -1,0 +1,59 @@
+version: "3.9"
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    container_name: cashflow-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"   # management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  transactions-api:
+    build:
+      context: .
+      dockerfile: src/CashFlow.Transactions.API/Dockerfile
+    container_name: cashflow-transactions
+    ports:
+      - "5001:8080"
+    environment:
+      ConnectionStrings__Default: "Data Source=/data/transactions.db"
+      RabbitMQ__Host: rabbitmq
+      RabbitMQ__Port: "5672"
+      RabbitMQ__User: guest
+      RabbitMQ__Password: guest
+    volumes:
+      - transactions-data:/data
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  consolidation-api:
+    build:
+      context: .
+      dockerfile: src/CashFlow.Consolidation.API/Dockerfile
+    container_name: cashflow-consolidation
+    ports:
+      - "5002:8080"
+    environment:
+      ConnectionStrings__Default: "Data Source=/data/consolidation.db"
+      RabbitMQ__Host: rabbitmq
+      RabbitMQ__Port: "5672"
+      RabbitMQ__User: guest
+      RabbitMQ__Password: guest
+    volumes:
+      - consolidation-data:/data
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+volumes:
+  transactions-data:
+  consolidation-data:
