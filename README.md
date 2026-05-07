@@ -1,4 +1,4 @@
-# 💰 CashFlow — Controle de Fluxo de Caixa
+# 💰 CashFlow — Controle de Fluxo de Caixa - VERX CONSULTORIA ( Carrefour )
 
 Solução para o desafio de Arquiteto de Software: sistema de controle de lançamentos diários (débitos/créditos) com consolidado diário, construído sobre **.NET 8**, **CQRS**, **Clean Architecture** e **mensageria assíncrona com RabbitMQ**.
 
@@ -33,13 +33,7 @@ Solução para o desafio de Arquiteto de Software: sistema de controle de lança
    └─────────────────┘           └─────────────────────┘
 ```
 
-### Por que dois serviços desacoplados?
 
-O requisito não-funcional exige que **o serviço de lançamentos não fique indisponível quando o de consolidado cair**. Isso é garantido por:
-
-1. **Comunicação assíncrona via RabbitMQ** — o serviço de transações publica um evento e segue; não espera resposta do consolidado.
-2. **Fila durável** (`cashflow.consolidation`) — mensagens ficam enfileiradas mesmo se o consumidor estiver offline e são processadas quando ele volta.
-3. **Swallow de erros de publicação** — se o próprio broker estiver indisponível, o erro é logado mas a transação *já foi persistida*; future evolution: Outbox Pattern.
 
 ---
 
