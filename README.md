@@ -7,7 +7,8 @@ Prototipo Tela Inicial: MODELO_PROPOSTO_TELAINICIAL.jpeg
 
 ## 📐 Arquitetura
 
-```
+=====> API -> APLICAÇÃO -> DOMINIO -> INFRAESTRUTURA -> TESTES
+
 ┌───────────────────────────────────────────────────────────────────┐
 │                         CLIENT / FRONTEND                         │
 └───────────┬───────────────────────────────┬───────────────────────┘
@@ -32,10 +33,10 @@ Prototipo Tela Inicial: MODELO_PROPOSTO_TELAINICIAL.jpeg
    │ transactions.db │           │ consolidation.db     │
    │ (SQLite)        │           │ (SQLite)             │
    └─────────────────┘           └─────────────────────┘
-```
+
 ## 🏗️ Estrutura do Projeto ( )
 
-```
+
 cashflow/
 ├── src/
 │   ├── CashFlow.Shared/                        # DTOs e eventos compartilhados
